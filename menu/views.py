@@ -12,7 +12,7 @@ class ItemViewSet(viewsets.ReadOnlyModelViewSet):
 	
 	def get_queryset(self):
 		"""
-		Returns items in the current section
+		Returns items in the section
 		"""
 
 		queryset = Item.objects.all()
@@ -26,7 +26,7 @@ class ItemOptionBinaryViewSet(viewsets.ReadOnlyModelViewSet):
 	
 	def get_queryset(self):
 		"""
-		Returns items in the current section
+		Returns options of the item
 		"""
 
 		queryset = ItemOptionBinary.objects.all()
@@ -40,7 +40,7 @@ class ItemOptionSelectionViewSet(viewsets.ReadOnlyModelViewSet):
 	
 	def get_queryset(self):
 		"""
-		Returns items in the current section
+		Returns options of the item
 		"""
 
 		queryset = ItemOptionSelection.objects.all()
