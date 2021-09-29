@@ -2,8 +2,6 @@
 Backend API service for Order and Pay Menu
 
 # TODO:
-+ Create backend api for menu sections/items/item options (GET)
-+ Get rid of option models add options into Item model
 - Create shopping cart backend (sessions?)
 	- need to be able to recieve every shopping cart update and modify user data accordingly (POST)
 	- get the current shopping cart for a specified user (close tab, reopen it, shopping cart shouldn't reset) (GET)
