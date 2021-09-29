@@ -12,6 +12,7 @@ Backend API service for Order and Pay Menu
 		- Decide:
 			- Send request to our server (list of items and price check) THEN our backend sends payment data to POS
 			- OR: Front end sends request to POS and us (so that we have record of it) simultaneously. Which is better?
+			- DO THE LATTER! However, check that user can't change shopping cart price without changing items -- and add protection
 	- Implement necessary backend
 - Create Accounts Backend
 	- Instead of guest sessions, create accounts with email/password (google/apple/facebook sign in?)
