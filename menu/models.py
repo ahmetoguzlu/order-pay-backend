@@ -18,24 +18,11 @@ class Item(models.Model):
 	description = models.CharField(max_length=200, blank=True)
 	price = models.FloatField(default=0.0)
 
-	def __str__(self):
-		return self.name
+	# Ex: ['pickles', 'tomato', 'vegan patty']
+	options_binary = models.JSONField(default=list)
 
-
-class ItemOptionBinary(models.Model):
-	item = models.ForeignKey(Item, on_delete=models.CASCADE)
-	# Option to have or not to have, i.e [pickles(yes/no), tomato(yes/no)] for a burger etc
-	name = models.CharField(max_length=100, blank=True)
+	# Ex: {'cooking': ['rare', 'medium', 'well-done']}
+	options_selection = models.JSONField(default=dict)
 
 	def __str__(self):
 		return self.name
-
-
-class ItemOptionSelection(models.Model):
-	item = models.ForeignKey(Item, on_delete=models.CASCADE)
-	# Make choice from a set, i.e [cook(rare,medium,well-done), side(salad, fries)] for steak
-	name = models.CharField(max_length=100, blank=True)
-	options = models.JSONField(default=list)
-
-	def __str__(self):
-		return str({self.name: self.options})

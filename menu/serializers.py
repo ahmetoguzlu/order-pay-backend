@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from menu.models import Section, Item, ItemOptionBinary, ItemOptionSelection
+from menu.models import Section, Item
 
 class SectionSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -9,14 +9,4 @@ class SectionSerializer(serializers.ModelSerializer):
 class ItemSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Item
-		fields = ['section', 'name', 'img', 'description', 'price']
-
-class ItemOptionBinarySerializer(serializers.ModelSerializer):
-	class Meta:
-		model = ItemOptionBinary
-		fields = ['item', 'name']
-
-class ItemOptionSelectionSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = ItemOptionSelection
-		fields = ['item', 'name', 'options']
+		fields = ['section', 'name', 'img', 'description', 'price', 'options_binary', 'options_selection']

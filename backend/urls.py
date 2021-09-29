@@ -16,13 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from menu.views import SectionViewSet, ItemViewSet, ItemOptionBinaryViewSet, ItemOptionSelectionViewSet
+from menu.views import SectionViewSet, ItemViewSet
 
 router = routers.SimpleRouter()
 router.register(r'section', SectionViewSet, basename='section')
 router.register(r'item', ItemViewSet, basename='item')
-router.register(r'option-binary', ItemOptionBinaryViewSet, basename='option_binary')
-router.register(r'option-selection', ItemOptionSelectionViewSet, basename='option_selection')
 
 
 urlpatterns = [

@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from rest_framework import viewsets
-from menu.models import Section, Item, ItemOptionBinary, ItemOptionSelection
-from menu.serializers import SectionSerializer, ItemSerializer, ItemOptionBinarySerializer, ItemOptionSelectionSerializer
+from menu.models import Section, Item
+from menu.serializers import SectionSerializer, ItemSerializer
 
 class SectionViewSet(viewsets.ReadOnlyModelViewSet):
 	serializer_class = SectionSerializer
@@ -19,32 +19,4 @@ class ItemViewSet(viewsets.ReadOnlyModelViewSet):
 		section = self.request.query_params.get('section')
 		if section is not None:
 			queryset = queryset.filter(section=section)
-		return queryset
-
-class ItemOptionBinaryViewSet(viewsets.ReadOnlyModelViewSet):
-	serializer_class = ItemOptionBinarySerializer
-	
-	def get_queryset(self):
-		"""
-		Returns options of the item
-		"""
-
-		queryset = ItemOptionBinary.objects.all()
-		item = self.request.query_params.get('item')
-		if item is not None:
-			queryset = queryset.filter(item=item)
-		return queryset
-
-class ItemOptionSelectionViewSet(viewsets.ReadOnlyModelViewSet):
-	serializer_class = ItemOptionSelectionSerializer
-	
-	def get_queryset(self):
-		"""
-		Returns options of the item
-		"""
-
-		queryset = ItemOptionSelection.objects.all()
-		item = self.request.query_params.get('item')
-		if item is not None:
-			queryset = queryset.filter(item=item)
 		return queryset
